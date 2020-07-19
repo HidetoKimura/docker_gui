@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    privileged: true
+    command: glxgears
+    environment:
+      - DISPLAY=${DISPLAY}
+    devices:
+     - "/dev/dri:/dev/dri"
+     - "/dev/snd:/dev/snd"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+
